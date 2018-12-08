@@ -12,12 +12,13 @@ var fs = require('fs')
 inquirer.prompt([{
     type: "list",
     name: "task",
-    message: "Hello there, please chose the option I can help you with:",
-    choices: ["concert-this", "spotify-this-song", "movie-this", "do-what-it-says"]
+    message: "Hello there, please choose the option I can help you with:",
+    choices: ["concert", "spotify a song", "movie", "do what it says"]
 }]).then((res) => {
     var consertInfo = []
     // declare functions for each task
-    concert = (liriChoice) => {
+    concert
+     = (liriChoice) => {
         if (liriChoice) {
             gatherConsert(liriChoice)
         } // gather the search input from the user if it is not liri's choice
@@ -105,7 +106,6 @@ inquirer.prompt([{
                 }
             });
         }
-
     }
     movie = (liriChoice) => {
         if (liriChoice) {
@@ -172,16 +172,16 @@ inquirer.prompt([{
     }
     // pick the function per user's request 
     switch (res.task) {
-        case "concert-this":
+        case "concert":
             concert();
             break;
-        case "spotify-this-song":
+        case "spotify a song":
             song();
             break;
-        case "movie-this":
+        case "movie":
             movie();
             break;
-        case "do-what-it-says":
+        case "do what it says":
             whatEves();
             break;
     }
