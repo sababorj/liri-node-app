@@ -87,7 +87,7 @@ inquirer.prompt([{
                         console.log(`Song Name: ${songInfo.name}`)
                         console.log(`Album Name: ${songInfo.album.name}`)
                         console.log(`Preview Link: ${songInfo.preview_url}`)
-                    } catch (err){
+                    } catch (err) {
                         spotify.search({ type: 'track', query: "Ace of Base" }, (err, data) => {
                             if (err) {
                                 console.log('Error occurred: ' + err);
@@ -185,5 +185,4 @@ inquirer.prompt([{
             whatEves();
             break;
     }
-
 })
