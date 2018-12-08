@@ -5,5 +5,5 @@ liri will then provide you with command options :
 * concert-this
 * spotify-this-song
 * movie-this
-* do-what-it-says 
-![execute liri]()
+* do-what-it-says
+![execute liri](https://www.dropbox.com/h)
