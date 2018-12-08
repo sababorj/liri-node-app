@@ -1,6 +1,10 @@
 # liri-node-app
 #### **liri** Language Interpretation and Recognition Interface, is a Node.js application. 
-liri.js is the main execution file. You can simply navigate to the project file in your terminal window and execute liri with this command ```node liri.js```
+**before runiong the project you need to instal node version v8.11.3 and npm version 6.4.1.**
+liri.js is the main execution file. 
+You can simply navigate to the project file in your terminal window and execute the following commands:
+*```npm i``` // To install dependencies 
+*```node liri.js``` // To execute liri
 liri will then provide you with command options : 
 * concert-this
 * spotify-this-song
