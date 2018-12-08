@@ -109,12 +109,7 @@ inquirer.prompt([{
     }
     movie = (liriChoice) => {
         if (liriChoice) {
-            gatherMovie(liriChoice)
-        } // gather the search input from the user if it is not liri's choice
-        else {
-            inquirer.prompt([{
-                message: "movie name?",
-                name: "movieInput"
+            gatherMovie(liriChoice)5
             }]).then((res) => {
                 gatherMovie(res.movieInput)
             })
