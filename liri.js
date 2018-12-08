@@ -62,23 +62,67 @@ inquirer.prompt([{
                 })
         }
     }
-    song = () => {
-        // gather the search input from the user
-        inquirer.prompt([{
-            message: "song name?",
-            name: "songInput"
-        }]).then((res) => {
-            // call the API to do the search
-        })
+    song = (liriChoice) => {
+        // gather the search input from the user if it is not liri's choice
+        if (liriChoice) {
+            gatherSong(liriChoice);
+        } else {
+            inquirer.prompt([{
+                message: "song name?",
+                name: "songInput"
+            }]).then((res) => {
+                gatherSong(res.songInput);
+            })
+        }
+        function gatherSong(search) {
+            spotify.search({ type: 'track', query: search }, (err, data) => {
+                if (err) {
+                    console.log('Error occurred: ' + err);
+                    return;  //from spotify npm docs
+                }
+                else {
+                    try {
+                        var songInfo = data.tracks.items[0];
+                        console.log(`Artist Name: ${songInfo.artists[0].name}`)
+                        console.log(`Song Name: ${songInfo.name}`)
+                        console.log(`Album Name: ${songInfo.album.name}`)
+                        console.log(`Preview Link: ${songInfo.preview_url}`)
+                    } catch (err){
+                        spotify.search({ type: 'track', query: "Ace of Base" }, (err, data) => {
+                            if (err) {
+                                console.log('Error occurred: ' + err);
+                                return;  //from spotify npm docs
+                            }
+                            else {
+                                var songInfo = data.tracks.items[0];
+                                console.log(`Artist Name: ${songInfo.artists[0].name}`)
+                                console.log(`Song Name: ${songInfo.name}`)
+                                console.log(`Album Name: ${songInfo.album.name}`)
+                                console.log(`Preview Link: ${songInfo.preview_url}`)
+                            }
+                        })
+                    };
+                }
+            });
+        }
+
     }
-    movie = () => {
-        // gather the search input from the user
-        inquirer.prompt([{
-            message: "movie name?",
-            name: "movieInput"
-        }]).then((res) => {
-            // call the API to do the search
-            axios.get(`http://www.omdbapi.com/?t=${res.movieInput}&apikey=${keys.OMDB}`).then(
+    movie = (liriChoice) => {
+        if (liriChoice) {
+            gatherMovie(liriChoice)
+        } // gather the search input from the user if it is not liri's choice
+        else {
+            inquirer.prompt([{
+                message: "movie name?",
+                name: "movieInput"
+            }]).then((res) => {
+                gatherMovie(res.movieInput)
+            })
+        }
+
+        // call the API to do the search
+        function gatherMovie(search) {
+            axios.get(`http://www.omdbapi.com/?t=${search}&apikey=${keys.OMDB}`).then(
                 (movieRes) => {
                     // Gather the movie information if they exist and print them
                     if (movieRes.data.Title !== undefined) {
@@ -101,7 +145,7 @@ inquirer.prompt([{
                 }).catch((err) => {
                     console.log(err)
                 })
-        })
+        }
     }
     whatEves = () => {
         // read the content of the text file
