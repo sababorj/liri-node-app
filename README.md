@@ -6,4 +6,25 @@ liri will then provide you with command options :
 * spotify-this-song
 * movie-this
 * do-what-it-says
+
 ![execute liri](/Images/command.png)
+
+#### concert feature
+You will be promp to provide a artist/band name. liri then will provide you information about upcoming concerts for that artist/band.
+
+![concert](/Images/concert.png)
+
+#### spotify song
+You will be promp to provide a song name. liri then will provide you information on that song.
+
+![song](/Images/song.png)
+
+#### spotify movie
+You will be promp to provide a Movie name. liri then will provide you information on that Movie.
+
+![movie](/Images/movie.png)
+
+#### spotify What liri wants
+With this command liri will randomly chose one of her commands which in stored in the random.txt file and proviode you with the results of command.
+
+![movie](/Images/whateves.png)
