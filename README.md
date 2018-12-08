@@ -6,4 +6,4 @@ liri will then provide you with command options :
 * spotify-this-song
 * movie-this
 * do-what-it-says
-![execute liri](https://www.dropbox.com/h)
+![execute liri](/Images/command.png)
